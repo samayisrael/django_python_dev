@@ -1,0 +1,4 @@
+#############NOTES
+
+
+I got the spotify part to work.  I may need to do a workaround for YT though.  But It was a good exercise

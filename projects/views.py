@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
     return HttpResponse('<pre>' + r.text + '</pre>')'''
 
 def index(request):
-
+    '''
     dataset = pd.read_csv('Salary_Data.csv')
     X = dataset.iloc[:, :-1].values
     y = dataset.iloc[:, 1].values
@@ -39,7 +39,8 @@ def index(request):
 
 
     return render(request, "index.html",  {"dataset": y_pred})
-
+    '''
+    return render(request, "index.html")
 
 def db(request):
 
