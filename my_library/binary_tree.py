@@ -123,7 +123,7 @@ class BinaryTree(object):
                 stack.append(node.right)
 
         return size
-
+'''
 tree = BinaryTree(1)
 tree.root.left = Node(2)
 tree.root.right = Node(3)
@@ -137,6 +137,7 @@ print(tree.size_(tree.root))
 print(tree.print_tree('postorder'))
 nodes = list(tree.print_tree('inorder').split('-'))
 print(nodes)
+'''
 #print(list(nodes.split('-')))
 #len(nodes)-1
 #print(tree.height(tree.root))

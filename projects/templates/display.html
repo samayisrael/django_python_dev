@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logocat">
+      <img src="{% static '369.jpg'%}" >
+    </a>
+    <h1>Welcome to My Nightmare.</h1>
+    <p>{{ dataset|safe|escape }}</p>
+    <p></p>
+  </div>
+</div>
+<div class="container">
+</div>
+{% endblock %}

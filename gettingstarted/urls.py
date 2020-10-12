@@ -16,6 +16,8 @@ import projects.views
 
 urlpatterns = [
     path("", projects.views.index, name="index"),
+    path("list/", projects.views.list, name="list"),
+    path("stable_detail/", projects.views.stable_detail, name="stable_detail"),
     path("db/", projects.views.db, name="db"),
     path("admin/", admin.site.urls),
 ]

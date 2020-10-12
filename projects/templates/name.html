@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logocat">
+      <img src="{% static '369.jpg'%}" >
+    </a>
+    <h1>Welcome to My Nightmare.</h1>
+    <p><a href="/stable_detail">Click me! {{ dataset }}</a></p>
+    <form action="/stable_detail/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+    <p></p>
+  </div>
+</div>
+<div class="container">
+</div>
+{% endblock %}
