@@ -1,0 +1,1 @@
+eqfeed_callback({"type":"FeatureCollection","features":[{"type": "Feature","geometry": {"type": "Point","coordinates": [-122.4522861,37.7215697]}}]});

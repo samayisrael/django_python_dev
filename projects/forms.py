@@ -1,4 +1,5 @@
 from django import forms
 
 class NameForm(forms.Form):
-    stable_detail = forms.CharField(label='Your name', max_length=100)
+    things_pick = forms.CharField(label='Pickers', max_length=100, initial='Ryan, Blake, Josh, Conner')
+    things_choice = forms.CharField(label='Choices', max_length=100, initial='Lizzy, Sarah, Zoey, Danica')

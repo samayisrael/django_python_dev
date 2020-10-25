@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+ <div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logocat">
+      <img src="{% static '369.jpg'%}" >
+    </a>
+    <h1>Welcome to My Nightmare.</h1>
+    <p>{{ dataset|safe|escape }}</p>
+
+    <!-- <p>{% for k in dataset.keys %}Current Key:  {{ k }}<br>{% endfor %}</p> -->
+    <!-- <p>{% cycle 'odd' 'even' %}</p> -->
+    <!-- <p>{% if user.is_authenticated %}Hello, {{ user.username }}.{% endif %}</p> -->
+
+    <!-- <iframe
+      width="600"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAIcFN-NhmGg4zVi3HP8CvLidqAMYUdtak
+        &q=152+4th+Avenue+San+Francisco+CA" allowfullscreen>
+    </iframe> -->
+
+    <p></p>
+  </div>
+</div>
+<div class="container">
+</div>
+{% endblock %}

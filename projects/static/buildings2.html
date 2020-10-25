@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Samay Israel</title>
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/static/js/stable.js">alert('hello');</script>
+
+  <style type="text/css">
+    .jumbotron {
+        background: #532f8c;
+        color: white;
+        padding-bottom: 80px
+    }
+    .jumbotron .btn-primary {
+        background: #845ac7;
+        border-color: #845ac7
+    }
+    .jumbotron .btn-primary:hover {
+        background: #7646c1
+    }
+    .jumbotron p {
+        color: #d9ccee;
+        max-width: 75%;
+        margin: 1em auto 2em
+    }
+
+    .jumbotron input {
+        color: #000000;
+        max-width: 75%;
+        margin: 1em auto 2em
+    }
+
+    .navbar+.jumbotron {
+        margin-top: -20px
+    }
+    .jumbotron .lang-logo {
+        display: block;
+        background: #b01302;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        border: 2px solid white
+    }
+    .jumbotron .lang-logocat {
+        display: block;
+        background: #b01302;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 150px;
+        height: 100px;
+        margin: auto;
+        border: 2px solid white
+    }
+    .jumbotron .lang-logocat img {
+        max-width: 100%;
+        background: #000000;
+    }
+
+
+  </style>
+
+<!-- Mapping info -->
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIcFN-NhmGg4zVi3HP8CvLidqAMYUdtak&callback=initMap&libraries=&v=weekly"
+  defer
+></script>
+<style type="text/css">
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+
+  /* Optional: Makes the sample page fill the window. */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<script>
+  let map;
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 8,
+    });
+  }
+</script>
+
+<!-- end Mapping info -->
+
+
+</head>
+<body>
+<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+      </li>
+      <li>
+        <a href="/"><span class="glyphicon glyphicon-user"></span></a>
+      </li>
+      <li>
+        <a href="/"></a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="navbar-right">
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<div id="map"></div>jjjjjjjjjjjjjjjjjj
+<!-- <div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logocat">
+      <img src="/static/369.jpg" >
+    </a>
+    <h1>Welcome to My Nightmare.</h1>
+    <p>test2</p>
+-->
+    <!-- <p></p> -->
+    <!-- <p>odd</p> -->
+    <!-- <p>Hello, samay.</p> -->
+
+    <!-- <iframe
+      width="600"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAIcFN-NhmGg4zVi3HP8CvLidqAMYUdtak
+        &q=152+4th+Avenue+San+Francisco+CA" allowfullscreen>
+    </iframe> -->
+
+<!--    <p></p>
+  </div>
+</div>
+<div class="container">
+</div> -->
+
+
+
+<link rel="stylesheet" href="/static/debug_toolbar/css/print.css" media="print">
+<link rel="stylesheet" href="/static/debug_toolbar/css/toolbar.css">
+<script type="module" src="/static/debug_toolbar/js/toolbar.js" async></script>
+<div id="djDebug" class="djdt-hidden" dir="ltr"
+     data-store-id="87353d26dd994a19ad6a4fbfc2745257" data-render-panel-url="/__debug__/render_panel/"
+     data-default-show="true"
+     >
+  <div class="djdt-hidden" id="djDebugToolbar">
+    <ul id="djDebugPanelList">
+
+        <li><a id="djHideToolBarButton" href="#" title="Hide toolbar">Hide &#187;</a></li>
+
+
+
+
+<li id="djdt-HistoryPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtHistoryPanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="History" class="HistoryPanel">
+
+  History
+
+
+      <br><small>/buildings</small>
+
+
+
+    </a>
+
+</li>
+
+
+
+
+<li id="djdt-VersionsPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtVersionsPanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="Versions" class="VersionsPanel">
+
+  Versions
+
+
+      <br><small>Django 3.0.5</small>
+
+
+
+    </a>
+
+</li>
+
+
+
+
+<li id="djdt-TimerPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtTimerPanel" checked title="Disable for next and successive requests">
+
+    <div class="djdt-contentless">
+
+  Time
+
+
+      <br><small>Total: 291.87ms</small>
+
+
+
+    </div>
+
+</li>
+
+
+
+
+<li id="djdt-SettingsPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtSettingsPanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="Settings from gettingstarted.settings" class="SettingsPanel">
+
+  Settings
+
+
+
+
+
+
+    </a>
+
+</li>
+
+
+
+
+<li id="djdt-HeadersPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtHeadersPanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="Headers" class="HeadersPanel">
+
+  Headers
+
+
+
+
+
+
+    </a>
+
+</li>
+
+
+
+
+<li id="djdt-RequestPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtRequestPanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="Request" class="RequestPanel">
+
+  Request
+
+
+      <br><small>buildings</small>
+
+
+
+    </a>
+
+</li>
+
+
+
+
+<li id="djdt-SQLPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtSQLPanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="SQL queries from 1 connection" class="SQLPanel">
+
+  SQL
+
+
+      <br><small>2 queries in 9.20ms</small>
+
+
+
+    </a>
+
+</li>
+
+
+
+
+<li id="djdt-StaticFilesPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtStaticFilesPanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="Static files (141 found, 1 used)" class="StaticFilesPanel">
+
+  Static files
+
+
+      <br><small>1 file used</small>
+
+
+
+    </a>
+
+</li>
+
+
+
+
+<li id="djdt-TemplatesPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtTemplatesPanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="Templates (2 rendered)" class="TemplatesPanel">
+
+  Templates
+
+
+      <br><small>buildings.html</small>
+
+
+
+    </a>
+
+</li>
+
+
+
+
+<li id="djdt-CachePanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtCachePanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="Cache calls from 1 backend" class="CachePanel">
+
+  Cache
+
+
+      <br><small>0 calls in 0.00ms</small>
+
+
+
+    </a>
+
+</li>
+
+
+
+
+<li id="djdt-SignalsPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtSignalsPanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="Signals" class="SignalsPanel">
+
+  Signals
+
+
+      <br><small>7 receivers of 12 signals</small>
+
+
+
+    </a>
+
+</li>
+
+
+
+
+<li id="djdt-LoggingPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtLoggingPanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="Log messages" class="LoggingPanel">
+
+  Logging
+
+
+      <br><small>0 messages</small>
+
+
+
+    </a>
+
+</li>
+
+
+
+
+<li id="djdt-RedirectsPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtRedirectsPanel" title="Enable for next and successive requests">
+
+    <div class="djdt-contentless djdt-disabled">
+
+  Intercept redirects
+
+
+    </div>
+
+</li>
+
+
+
+
+<li id="djdt-ProfilingPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtProfilingPanel" checked title="Disable for next and successive requests">
+
+    <a href="#" title="Profiling" class="ProfilingPanel">
+
+  Profiling
+
+
+
+
+
+
+    </a>
+
+</li>
+
+
+    </ul>
+  </div>
+  <div class="djdt-hidden" id="djDebugToolbarHandle">
+    <div title="Show toolbar" id="djShowToolBarButton">
+      <span id="djShowToolBarD">D</span><span id="djShowToolBarJ">J</span>DT
+    </div>
+  </div>
+
+
+
+
+
+  <div id="HistoryPanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>History</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <div id="VersionsPanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>Versions</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div id="SettingsPanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>Settings from gettingstarted.settings</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <div id="HeadersPanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>Headers</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <div id="RequestPanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>Request</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <div id="SQLPanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>SQL queries from 1 connection</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <div id="StaticFilesPanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>Static files (141 found, 1 used)</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <div id="TemplatesPanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>Templates (2 rendered)</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <div id="CachePanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>Cache calls from 1 backend</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <div id="SignalsPanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>Signals</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <div id="LoggingPanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>Log messages</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div id="ProfilingPanel" class="djdt-panelContent">
+    <div class="djDebugPanelTitle">
+      <a href="" class="djDebugClose">×</a>
+      <h3>Profiling</h3>
+    </div>
+    <div class="djDebugPanelContent">
+
+        <img src="/static/debug_toolbar/img/ajax-loader.gif" alt="loading" class="djdt-loader">
+        <div class="djdt-scroll"></div>
+
+    </div>
+  </div>
+
+
+
+  <div id="djDebugWindow" class="djdt-panelContent"></div>
+</div>
+</body>
+</html>
