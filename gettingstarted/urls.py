@@ -27,6 +27,7 @@ import projects.views
 urlpatterns = [
     path("", projects.views.index, name="index"),
     path("buildings", projects.views.buildings, name="buildings"),
+    path("buildings_google", projects.views.buildings, name="buildings_google"),
     path("list/", projects.views.list, name="list"),
     path("stable_detail/", projects.views.stable_detail, name="stable_detail"),
     path("db/", projects.views.db, name="db"),
