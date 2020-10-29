@@ -8,3 +8,7 @@ joblib
 scikit-learn==0.22.2
 matplotlib
 pandas
+debug_toolbar
+folium
+googlemaps
+var_dump
