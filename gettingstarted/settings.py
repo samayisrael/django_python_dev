@@ -14,6 +14,8 @@ import os
 import django_heroku
 
 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Keep this out for now. PROJECT_DIR = BASE_DIR +'\projects'
@@ -132,5 +134,4 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
-
 django_heroku.settings(locals())

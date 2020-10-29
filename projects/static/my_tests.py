@@ -8,10 +8,11 @@ import time
 from bs4 import BeautifulSoup
 import re
 import os
+from secrets import google_key
 
 url = 'https://sffnb.org/list-of-san-francisco-empty-and-abandoned-buildings/'
 #Connect to Google
-gmaps = googlemaps.Client(key='AIzaSyAIcFN-NhmGg4zVi3HP8CvLidqAMYUdtak')
+gmaps = googlemaps.Client(key=google_key)
 
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')

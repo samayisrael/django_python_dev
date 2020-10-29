@@ -98,7 +98,9 @@ def buildings(request):
     import googlemaps
     from datetime import datetime
 
-    #gmaps = googlemaps.Client(key='AIzaSyAIcFN-NhmGg4zVi3HP8CvLidqAMYUdtak')
+    from projects.static.secrets import google_key
+
+    #gmaps = googlemaps.Client(key=google_key)
 
 
     # Geocoding an address
@@ -144,8 +146,9 @@ def buildings_google(request):
     import folium
     import googlemaps
     from datetime import datetime
+    from projects.static.secrets import google_key
 
-    #gmaps = googlemaps.Client(key='AIzaSyAIcFN-NhmGg4zVi3HP8CvLidqAMYUdtak')
+    #gmaps = googlemaps.Client(key=google_key)
 
 
     # Geocoding an address
