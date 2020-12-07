@@ -134,4 +134,13 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'projects\static'),
+    #"/home/special.polls.com/polls/static",
+    #"/home/polls.com/polls/static",
+    #"/opt/webfiles/common",
+]
+
+
 django_heroku.settings(locals())

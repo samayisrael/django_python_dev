@@ -143,51 +143,13 @@ def buildings(request):
 
 def buildings_google(request):
 
-    import folium
     import googlemaps
     from datetime import datetime
     from projects.static.secrets import google_key
 
-    #gmaps = googlemaps.Client(key=google_key)
-
-
-    # Geocoding an address
-    #geocode_result = gmaps.geocode('San Francisco, CA')
-    #geocode_result = gmaps.geocode('152 4th Avenue, San Francisco, CA')
-
-    #geocode_result = '{"type": "Feature","geometry": { "type": "Point","coordinates": [125.6, 10.1]},"properties": {"name": "Dinagat Islands"}}'
-
-    # Look up an address with reverse geocoding
-    #reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
-
-    # Request directions via public transit
     now = datetime.now()
-    '''
-    directions_result = gmaps.directions("Sydney Town Hall",
-                                         "Parramatta, NSW",
-                                         mode="transit",
-                                         departure_time=now)
-    '''
 
-
-
-
-
-    # Step One:  Get addresses from food not bombs
-    # Step Two:  Step up folium map
-    #folium_map = folium.Map(location=[45.5236, -122.6750])
-    folium_map = folium.Map(location=[45.5236, -122.6750])
-    tooltip = 'Click me!'
-
-    #folium.Marker([45.5236, -122.6750], popup='<i>Testing Markers</i>', tooltip=tooltip).add_to(folium_map)
-    #folium.Marker([45.3311, -121.7113], popup='<b>Timberline Lodge</b>', tooltip=tooltip).add_to(m)
-
-    # Step Three:  Loop through results and display on map.
-
-
-    buildings_info = folium_map._repr_html_()
-    #buildings_info = geocode_result
-    return render(request, "buildings.html",  {"dataset": buildings_info})
+    return render(request, "earthquakes.html",  {"google_key": google_key})
 
 def stable_detail(request):
     # if this is a POST request we need to process the form data
