@@ -11,4 +11,3 @@ pandas
 folium
 googlemaps
 var_dump
-debug_toolbar

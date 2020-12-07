@@ -6,7 +6,7 @@ from django.contrib import admin
 #  as well as a line in urlpatterns.
 
 
-import debug_toolbar
+#import debug_toolbar
 from django.conf import settings
 
 
@@ -32,5 +32,5 @@ urlpatterns = [
     path("stable_detail/", projects.views.stable_detail, name="stable_detail"),
     path("db/", projects.views.db, name="db"),
     path("admin/", admin.site.urls),
-    path('__debug__/', include(debug_toolbar.urls)),
+    #path('__debug__/', include(debug_toolbar.urls)),
 ]
