@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+
+
+<h2>My Testing Page</h2>
+
+
+<ul>
+<li>{{ targets }}</li>
+<li>a difference, at least.
+<li>{{ target_amounts}} </li>
+<li>I am so done with this bullshit.</li>
+  {% for x in endres %}
+      <li> {{ x }}</li>
+  {% endfor %}
+<li>end result</li>
+
+{% for element in actual_amounts %}
+    <li> {{ element.amount }}</li>
+{% endfor %}
+<li>break here</li>
+{% for dt in target_amounts %}
+    <li>{{ dt }}  {{ dt.daily_target }}</li>
+{% endfor %}
+
+
+</ul>
+
+
+</div>
+
+{% endblock %}
