@@ -2,7 +2,7 @@ import requests
 from django.shortcuts import render
 from django.http import HttpResponse
 import numpy
-from .models import Greeting
+from .models import Greeting, Food, Element, Amount, ElementType
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -92,54 +92,27 @@ def list(request):
     project_list_info = "project_list"
     return render(request, "list.html",  {"dataset": project_list_info})
 
-def buildings(request):
-
-    import folium
-    import googlemaps
-    from datetime import datetime
-
-    from projects.static.secrets import google_key
-
-    #gmaps = googlemaps.Client(key=google_key)
+def feedme_landing(request):
 
 
-    # Geocoding an address
-    #geocode_result = gmaps.geocode('San Francisco, CA')
-    #geocode_result = gmaps.geocode('152 4th Avenue, San Francisco, CA')
+    #food_obj = Food.objects.get(pk=1)
 
-    #geocode_result = '{"type": "Feature","geometry": { "type": "Point","coordinates": [125.6, 10.1]},"properties": {"name": "Dinagat Islands"}}'
-
-    # Look up an address with reverse geocoding
-    #reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
-
-    # Request directions via public transit
-    now = datetime.now()
     '''
-    directions_result = gmaps.directions("Sydney Town Hall",
-                                         "Parramatta, NSW",
-                                         mode="transit",
-                                         departure_time=now)
+    element_objs = element.objects.filter(food_id=food_obj.id)
+
+    context = {
+
+        "vehicles": car_objs,
+
+        "drivers": owner_obj,
+
+    }
     '''
 
+    feedme_landing_info = "feed me index page"
+    return render(request, "feedme.html",  {"dataset": feedme_landing_info})
 
 
-
-
-    # Step One:  Get addresses from food not bombs
-    # Step Two:  Step up folium map
-    #folium_map = folium.Map(location=[45.5236, -122.6750])
-    folium_map = folium.Map(location=[45.5236, -122.6750])
-    tooltip = 'Click me!'
-
-    #folium.Marker([45.5236, -122.6750], popup='<i>Testing Markers</i>', tooltip=tooltip).add_to(folium_map)
-    #folium.Marker([45.3311, -121.7113], popup='<b>Timberline Lodge</b>', tooltip=tooltip).add_to(m)
-
-    # Step Three:  Loop through results and display on map.
-
-
-    buildings_info = folium_map._repr_html_()
-    #buildings_info = geocode_result
-    return render(request, "buildings.html",  {"dataset": buildings_info})
 
 def buildings_google(request):
 
@@ -174,7 +147,10 @@ def stable_detail(request):
     #stable_project_info = "form added stable detail page"
     #return render(request, "stable_detail.html",  {"dataset": stable_project_info})
 
+def portal(request):
 
+    portal_info = "portal_info"
+    return render(request, "portal.html",  {"dataset": portal_info})
 
 def db(request):
 
@@ -183,4 +159,71 @@ def db(request):
 
     greetings = Greeting.objects.all()
 
-    return render(request, "db.html", {"greetings": greetings})
+    foods = ''
+    elements = ''
+    element_type = ''
+
+    food = Food(name='Banana')
+    food.save()
+
+    foods = Food.objects.all()
+
+    #element_type = ElementType.objects.all()
+    element_type = ElementType(name='Minerals')
+    element_type.save()
+    element_types = ElementType.objects.all()
+
+
+    # Importing the dataset
+    dataset = pd.read_csv('Data.csv')
+
+    element = Element(name='Calcium', element_type=element_type)
+    element.save()
+
+    elements = Element.objects.all()
+
+    m1 = Amount(element=element, food=food,
+                amount=5.0)
+    m1.save()
+    food.amounts.all()
+
+    return render(request, "db.html", {"greetings": greetings, "foods": foods, "elements": elements, 'element_types' : element_types})
+
+
+def mytest(request):
+
+    foods = ''
+    elements = ''
+    element_type = ''
+
+    #  Only one food in the db so far.
+    food = Food.objects.get(name='Potatoes')
+
+
+    targets = Element.objects.values('daily_target')
+    food_amounts= Amount.objects.filter(food_id = food.id).values('amount')
+
+
+    target_amounts = [targets.daily_target for targets.daily_target in targets]
+    actual_amounts = [food_amounts.amount for food_amounts.amount in food_amounts]
+
+    endres = []
+    #for x, y in zip(target_amounts, actual_amounts):
+        #endres.append(x(1))
+
+
+    #desired_value = m1.amount/element.daily_target*100
+    #desired_value = '{0:.2g}'.format(desired_value)
+    #desired_value = 15/1000*100
+    desired_value = 0
+
+    #elements = elemental.loc[2,['name','daily_target']]
+    #print(element)
+    #element = Element(name='Calcium', element_type=element_type)
+    #element.save()
+
+    #elements = Element.objects.all()
+
+
+    #return render(request, "mytest.html", {"targets" : targets, "food_amount" : food_amount})
+    return render(request, "mytest.html", {"targets" : targets, "target_amounts" : target_amounts, "actual_amounts" : actual_amounts, "endres" : endres})

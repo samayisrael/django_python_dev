@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load staticfiles %}
 
 {% block content %}
   <div class="container">
@@ -15,6 +14,31 @@
 {% endfor %}
 
 </ul>
+
+<ul>
+
+{% for food in foods %}
+    <li>{{ food.id }}, {{ food.name }}</li>
+{% endfor %}
+
+</ul>
+
+<ul>
+
+{% for element in elements %}
+    <li>{{ element.name }}</li>
+{% endfor %}
+
+</ul>
+
+<ul>
+
+{% for element_type in element_types %}
+    <li>{{ element_type.name }}</li>
+{% endfor %}
+
+</ul>
+
 
 </div>
 

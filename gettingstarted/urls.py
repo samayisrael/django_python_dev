@@ -26,11 +26,13 @@ import projects.views
 
 urlpatterns = [
     path("", projects.views.index, name="index"),
-    path("buildings", projects.views.buildings, name="buildings"),
+    path("feedme", projects.views.feedme_landing, name="feedme_landing"),
     path("buildings_google", projects.views.buildings_google, name="buildings_google"),
     path("list/", projects.views.list, name="list"),
+    path("portal/", projects.views.portal, name="portal"),
     path("stable_detail/", projects.views.stable_detail, name="stable_detail"),
     path("db/", projects.views.db, name="db"),
+    path("mytest/", projects.views.mytest, name="mytest"),
     path("admin/", admin.site.urls),
     #path('__debug__/', include(debug_toolbar.urls)),
 ]
