@@ -159,39 +159,12 @@ def db(request):
 
     greetings = Greeting.objects.all()
 
-    foods = ''
-    elements = ''
-    element_type = ''
-
-    food = Food(name='Banana')
-    food.save()
-
-    foods = Food.objects.all()
-
-    #element_type = ElementType.objects.all()
-    element_type = ElementType(name='Minerals')
-    element_type.save()
-    element_types = ElementType.objects.all()
-
-
-    # Importing the dataset
-    dataset = pd.read_csv('Data.csv')
-
-    element = Element(name='Calcium', element_type=element_type)
-    element.save()
-
-    elements = Element.objects.all()
-
-    m1 = Amount(element=element, food=food,
-                amount=5.0)
-    m1.save()
-    food.amounts.all()
-
     return render(request, "db.html", {"greetings": greetings, "foods": foods, "elements": elements, 'element_types' : element_types})
 
 
 def mytest(request):
 
+######################  I need to figure out how to loop through the query now that I have the data.
     foods = ''
     elements = ''
     element_type = ''
@@ -199,31 +172,8 @@ def mytest(request):
     #  Only one food in the db so far.
     food = Food.objects.get(name='Potatoes')
 
-
-    targets = Element.objects.values('daily_target')
-    food_amounts= Amount.objects.filter(food_id = food.id).values('amount')
-
-
-    target_amounts = [targets.daily_target for targets.daily_target in targets]
-    actual_amounts = [food_amounts.amount for food_amounts.amount in food_amounts]
-
-    endres = []
-    #for x, y in zip(target_amounts, actual_amounts):
-        #endres.append(x(1))
-
-
-    #desired_value = m1.amount/element.daily_target*100
-    #desired_value = '{0:.2g}'.format(desired_value)
-    #desired_value = 15/1000*100
-    desired_value = 0
-
-    #elements = elemental.loc[2,['name','daily_target']]
-    #print(element)
-    #element = Element(name='Calcium', element_type=element_type)
-    #element.save()
-
-    #elements = Element.objects.all()
-
+    target_amounts = Element.objects.all().order_by('id')
+    amounts_table= Amount.objects.filter(food_id = food.id).order_by('element_id')
 
     #return render(request, "mytest.html", {"targets" : targets, "food_amount" : food_amount})
-    return render(request, "mytest.html", {"targets" : targets, "target_amounts" : target_amounts, "actual_amounts" : actual_amounts, "endres" : endres})
+    return render(request, "mytest.html", {"target_amounts" : target_amounts, "amounts_table" : amounts_table})

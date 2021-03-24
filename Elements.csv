@@ -1,0 +1,11 @@
+id,name,daily_target,measured_in,elementtype_id
+1,Calcium,1000,mg,3
+2,Copper,0.9,mg,3
+3,Iron,18,mg,3
+4,Magnesium,320,mg,3
+5,Manganese,1.8,mg,3
+6,Phosphorus,700,mg,3
+7,Potassium,4700,mg,3
+8,Selenium,55,ug,3
+9,Sodium,1500,mg,3
+10,Zinc,8,mg,3

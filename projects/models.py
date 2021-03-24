@@ -24,7 +24,6 @@ class Element(models.Model):
 
 class Food(models.Model):
     name = models.CharField(max_length=100)
-    amounts = models.ManyToManyField(Element, through='Amount')
 
     def __str__(self):
         return self.name
