@@ -89,6 +89,16 @@ def index(request):
 
 def list(request):
 
+    from django.core.mail import send_mail
+
+    send_mail(
+        'SamayTest',
+        'Here is the message.',
+        'samay.israel@gmail.com',
+        ['samay.israel@gmail.com'],
+        fail_silently=False,
+    )
+
     project_list_info = "project_list"
     return render(request, "list.html",  {"dataset": project_list_info})
 

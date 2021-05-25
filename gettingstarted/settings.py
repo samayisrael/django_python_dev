@@ -145,5 +145,9 @@ STATICFILES_DIRS = [
     #"/opt/webfiles/common",
 ]
 
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '06194d32b8062a'
+EMAIL_HOST_PASSWORD = '5d30191f6e0a1d'
+EMAIL_PORT = '2525'
 
 django_heroku.settings(locals())
