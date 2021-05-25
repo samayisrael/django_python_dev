@@ -11,6 +11,7 @@ from django.conf import settings
 
 
 
+
 admin.autodiscover()
 import projects.views
 
@@ -36,3 +37,9 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     #path('__debug__/', include(debug_toolbar.urls)),
 ]
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ]
