@@ -93,7 +93,7 @@ def list(request):
 
     send_mail(
         'SamayTest',
-        'Here is the message.',
+        'Here is the message.'+ request.headers['HOST'] +'end of text for me.',
         'samay.israel@gmail.com',
         ['samay.israel@gmail.com'],
         fail_silently=False,
