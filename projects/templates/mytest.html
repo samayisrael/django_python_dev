@@ -1,23 +1,27 @@
 {% extends "base.html" %}
+{% load mathfilters %}
 
 {% block content %}
-  <div class="container">
+<div class="container">
+<h2>It is {{ food.name }}</h2>
 
-
-<h2>My Testing Page</h2>
-
-<ul>
-
-<li>I am so done with this bullshit.</li>
-{% for element in amounts_table %}
-    <li> {{ element.element_id }} {{ element.amount }}</li>
-{% endfor %}
-<li>break here</li>
-{% for dt in target_amounts %}
-    <li>{{ dt }}  {{ dt.daily_target }}</li>
-{% endfor %}
-</ul>
-
+    <table border="1" width="100%">
+        <tr>
+            <th>Element</th>
+            <th>Element Type</th>
+            <th>Amount Supplied</th>
+            <th>Target</th>
+        </tr>
+        {% for amount in food.amount_set.all %}
+            <tr>
+                <td>{{ amount.element.name }}</td>
+                <td>{{ amount.element.elementtype }}</td>
+                <td>{{ amount.amount }} {{ amount.element.measured_in }}</td>
+                {% endwith %}
+                <td>{{ amount.element.daily_target }} {{ amount.element.measured_in }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 </div>
 
 {% endblock %}

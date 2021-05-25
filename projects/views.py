@@ -163,17 +163,59 @@ def db(request):
 
 
 def mytest(request):
+    import csv
 
-######################  I need to figure out how to loop through the query now that I have the data.
-    foods = ''
-    elements = ''
-    element_type = ''
+    greetings = Greeting.objects.all()
 
+
+
+    element = Element.objects.get(name='Zinc')
+    '''
+    Calcium  row[2]
+    Copper   row[9]
+    Iron     row[3]
+    Magnesium row[5]
+    Manganese row[10]
+    Phosphorus row[6]
+    Potassium row[4]
+    Selenium  row[11]
+    Sodium    row[7]
+    Zinc      row[8]
+    '''
+
+    with open('food_data_working.csv', newline='') as csvfile:
+        foodreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+        for row in foodreader:
+            food = Food.objects.get(name=row[1])
+            if row[8] != 'NULL':
+                val = row[8]
+            else:
+                val = 0
+            amount = Amount(element_id=element.id, food_id = food.id, amount=val)
+            amount.save()
+            # I used the code below to create the initial foods.
+            #food = Food(name=row[1])
+            #food.save()
+            #', '.join(row)
+
+            # Second part is getting the food and then adding in all the element amount per 100g.
+            # I am only doing the 10 minerals for the time being.
+            # for every food, insert calcium amounts
+
+
+
+    return render(request, "db.html", {"greetings": greetings})
+
+
+def mytest2(request):
     #  Only one food in the db so far.
     food = Food.objects.get(name='Potatoes')
 
-    target_amounts = Element.objects.all().order_by('id')
-    amounts_table= Amount.objects.filter(food_id = food.id).order_by('element_id')
+    #target_amounts = Element.objects.all().order_by('id')
+    #amounts_table= Amount.objects.filter(food_id = food.id).order_by('element_id')
+    #food = Food.objects.get(name='Potatoes')
+
+    return render(request, "mytest.html", {"food": food})
 
     #return render(request, "mytest.html", {"targets" : targets, "food_amount" : food_amount})
-    return render(request, "mytest.html", {"target_amounts" : target_amounts, "amounts_table" : amounts_table})
+    #return render(request, "mytest.html", {"target_amounts" : target_amounts, "amounts_table" : amounts_table})
