@@ -59,15 +59,15 @@ def index(request):
     from django.core.mail import send_mail
 
     if request.headers['HOST'] != 'localhost:5000':
-        '''
+
         send_mail(
-            'SamayTest - this is the index page',
+            'Samay Live - this is the index page',
             'Here is the message.'+ request.headers['HOST'] +' end of text for me.',
             'samay.israel@gmail.com',
             ['samay.israel@gmail.com'],
             fail_silently=False,
         )
-        '''
+
 
     logger.error('in the index function begining today')
 
