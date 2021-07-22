@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-<!--- {% load mathfilters %} --->
+
 
 {% block content %}
 <div class="container">
@@ -17,7 +17,6 @@
                 <td>{{ amount.element.name }}</td>
                 <td>{{ amount.element.elementtype }}</td>
                 <td>{{ amount.amount }} {{ amount.element.measured_in }}</td>
-                {% endwith %}
                 <td>{{ amount.element.daily_target }} {{ amount.element.measured_in }}</td>
             </tr>
         {% endfor %}

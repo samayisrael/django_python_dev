@@ -59,6 +59,7 @@ def index(request):
     from django.core.mail import send_mail
 
     if request.headers['HOST'] != 'localhost:5000':
+        '''
         send_mail(
             'SamayTest - this is the index page',
             'Here is the message.'+ request.headers['HOST'] +' end of text for me.',
@@ -66,8 +67,9 @@ def index(request):
             ['samay.israel@gmail.com'],
             fail_silently=False,
         )
+        '''
 
-    logger.error('in the index function begining')
+    logger.error('in the index function begining today')
 
     '''
     dataset = pd.read_csv('Salary_Data.csv')
@@ -96,7 +98,7 @@ def index(request):
     return render(request, "index.html")
     '''
 
-    index_info = 'index_page'#tree.the_result sm.main()
+    index_info = ''#tree.the_result sm.main()
     return render(request, "index.html",  {"dataset": index_info})
 
 def list(request):
@@ -186,7 +188,7 @@ def db(request):
     return render(request, "db.html", {"greetings": greetings, "foods": foods, "elements": elements, 'element_types' : element_types})
 
 
-def mytest(request):
+def mytest2(request):
     import csv
 
     greetings = Greeting.objects.all()
@@ -231,7 +233,7 @@ def mytest(request):
     return render(request, "db.html", {"greetings": greetings})
 
 
-def mytest2(request):
+def mytest(request):
     #  Only one food in the db so far.
     food = Food.objects.get(name='Potatoes')
 
@@ -243,3 +245,23 @@ def mytest2(request):
 
     #return render(request, "mytest.html", {"targets" : targets, "food_amount" : food_amount})
     #return render(request, "mytest.html", {"target_amounts" : target_amounts, "amounts_table" : amounts_table})
+
+def daily(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            #return HttpResponseRedirect('/result/')
+
+            return render(request, 'display.html', {'form': form, 'dataset' : 'results'})
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        allFoods = Food.objects.all().order_by('name')
+
+    return render(request, 'daily.html', {'allFoods' : allFoods})

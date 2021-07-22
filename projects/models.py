@@ -32,3 +32,8 @@ class Amount(models.Model):
     element = models.ForeignKey(Element, on_delete=models.CASCADE)
     food = models.ForeignKey(Food, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=11, decimal_places=2)
+
+
+class Daily(models.Model):
+    food = models.ForeignKey(Food, on_delete=models.CASCADE)
+    chosen_amount = models.DecimalField(max_digits=11, decimal_places=2, default=0)
